@@ -1,0 +1,47 @@
+
+/* Navbar tweaks */
+.navbar {
+  background-color: #CE1126 !important;
+}
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #FFFFFF !important;
+  font-weight: bold;
+}
+.navbar .nav-link:hover {
+  color: #FFD2D2 !important;
+}
+
+/* Page titles */
+.page-title {
+  color: #CE1126;
+  font-size: 2.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Section headings */
+.section-title {
+  color: #007A3D;
+  margin-top: 1.5rem;
+}
+
+/* Body text */
+.section-text {
+  color: #2D2D2D;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Logo padding */
+.logo {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Blog placeholder */
+.blog-placeholder {
+  color: #555555;
+  font-style: italic;
+}
+
