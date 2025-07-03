@@ -107,37 +107,35 @@ ui <- navbarPage(
       ),
       fluidRow(
         column(8, offset=2,
+               # clickable, collapsible cards
                tags$section(
-                 tags$div(class="card mb-4 shadow-sm",
-                          tags$div(class="card-body",
-                                   h3("Who we are", class="card-title"),
-                                   p("", class="section-text")
-                          )
-                 ),
-                 tags$div(class="card mb-4 shadow-sm",
-                          tags$div(class="card-body",
-                                   h3("What we stand for", class="card-title"),
-                                   p("", class="section-text")
-                          )
-                 ),
-                 tags$div(class="card mb-4 shadow-sm",
-                          tags$div(class="card-body",
-                                   h3("What we stand against", class="card-title"),
-                                   p("", class="section-text")
-                          )
-                 ),
-                 tags$div(class="card mb-4 shadow-sm",
-                          tags$div(class="card-body",
-                                   h3("What is our main objective", class="card-title"),
-                                   p("", class="section-text")
-                          )
-                 ),
-                 tags$div(class="card mb-4 shadow-sm",
-                          tags$div(class="card-body",
-                                   h3("How we pursue our objective", class="card-title"),
-                                   p("", class="section-text")
-                          )
-                 )
+                 lapply(seq_along(qs <- c(
+                   "Who we are",
+                   "What we stand for",
+                   "What we stand against",
+                   "What is our main objective",
+                   "How we pursue our objective"
+                 )), function(i) {
+                   id <- paste0("q", i)
+                   tags$div(class="card mb-4 shadow-sm",
+                            # header is a button that toggles the collapse
+                            tags$div(class="card-header",
+                                     tags$button(
+                                       class = "btn btn-link text-secondary",
+                                       `data-bs-toggle` = "collapse",
+                                       `data-bs-target` = paste0("#", id),
+                                       style = "text-decoration:none; font-family:'Rubik Mono One'; font-size:1.3rem;",
+                                       qs[i]
+                                     )
+                            ),
+                            # hidden body
+                            tags$div(id = id, class = "collapse",
+                                     tags$div(class = "card-body",
+                                              p("We will write this together ! ^^", class="section-text")
+                                     )
+                            )
+                   )
+                 })
                )
         )
       )
